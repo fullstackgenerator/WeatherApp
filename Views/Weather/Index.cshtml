@@ -1,0 +1,23 @@
+﻿@using System.Security.Authentication
+@model WeatherApp.Models.WeatherModel
+
+@{
+    ViewData["Title"] = "Weather";
+}
+
+<form method="post">
+    <input type="text" name="city" placeholder="enter city" required=""/>
+    <button type="submit">Get weather</button>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red">@ViewBag.Error</p>
+}
+
+@if (Model != null)
+{
+    <h2>Weather in @Model.City</h2>
+    <p>@Model.WeatherText</p>
+    <p>@Model.Temperature</p>
+}
