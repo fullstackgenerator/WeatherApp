@@ -1,6 +1,7 @@
 ﻿using WeatherApp.Services;
 
 namespace WeatherApp.Controllers;
+
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
@@ -18,8 +19,7 @@ public class WeatherController : Controller
     {
         return View();
     }
-    
-    [HttpPost]
+
     [HttpPost]
     public async Task<IActionResult> Index(string city)
     {

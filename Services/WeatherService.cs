@@ -27,7 +27,7 @@ public class WeatherService
 
         var content = await response.Content.ReadAsStringAsync();
         dynamic data = JsonConvert.DeserializeObject(content);
-        
+
         return (string)data.location.name;
     }
 
@@ -66,5 +66,4 @@ public class WeatherService
 
         return forecastList;
     }
-
 }
