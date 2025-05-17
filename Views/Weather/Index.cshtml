@@ -1,4 +1,5 @@
-﻿@using System.Security.Authentication
+﻿@using System.Globalization
+@using System.Security.Authentication
 @model WeatherApp.Models.WeatherModel
 
 @{
@@ -20,4 +21,27 @@
     <h2>Weather in @Model.City</h2>
     <p>@Model.WeatherText</p>
     <p>@Model.Temperature</p>
+    
+    <h3>5-day forecast</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Conditions</th>
+            <th>Min Temp</th>
+            <th>Max Temp</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var day in Model.Forecasts)
+        {
+            <tr>
+                <td>@DateTime.Parse(day.Date, CultureInfo.InvariantCulture).ToString("MM/dd/yyyy HH:mm:ss")</td>
+                <td>@day.IconPhrase</td>
+                <td>@day.MinTemp</td>
+                <td>@day.MaxTemp</td>
+            </tr>
+        }
+        </tbody>
+    </table>
 }
