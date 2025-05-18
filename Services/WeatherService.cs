@@ -15,22 +15,6 @@ public class WeatherService
         _apiKey = configuration["WeatherApi:ApiKey"];
     }
 
-    public async Task<string?> GetLocationKeyAsync(string city)
-    {
-        var url = $"http://api.weatherapi.com/v1/current.json?key={_apiKey}&q={city}";
-        var response = await _httpClient.GetAsync(url);
-
-        if (!response.IsSuccessStatusCode)
-        {
-            return null;
-        }
-
-        var content = await response.Content.ReadAsStringAsync();
-        dynamic data = JsonConvert.DeserializeObject(content);
-
-        return (string)data.location.name;
-    }
-
     public async Task<WeatherModel> GetCurrentConditionsAsync(string city)
     {
         var url = $"http://api.weatherapi.com/v1/current.json?key={_apiKey}&q={city}";
