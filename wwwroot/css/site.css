@@ -29,3 +29,50 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+ body.dark-mode {
+   background-color: #121212;
+   color: #f1f1f1;
+ }
+
+body.dark-mode .card {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+
+body.dark-mode input,
+body.dark-mode .form-control,
+body.dark-mode .btn-primary {
+  background-color: #333;
+  color: #fff;
+  border-color: #555;
+}
+
+body.dark-mode ::placeholder {
+  color: #aaa;
+  opacity: 1;
+}
+
+
+body.dark-mode .btn-primary {
+  background-color: #0069d9;
+}
+
+/*animations*/
+input,
+textarea,
+body,
+.card,
+::placeholder {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  transition: color 0.3s ease;
+}
+
+.form-control,
+.btn {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

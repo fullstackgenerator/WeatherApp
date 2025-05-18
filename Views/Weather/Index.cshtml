@@ -4,9 +4,15 @@
 @{
     ViewData["Title"] = "Weather Forecast";
 }
-
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Weather Forecast</h1>
+    <div class="form-check form-switch float-end">
+        <input class="form-check-input" type="checkbox" id="darkModeToggle"/>
+        <label class="form-check-label" for="darkModeToggle">Dark mode</label>
+    </div>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Weather Forecast</h1>
+
+    </div>
 
     <form method="post" class="mb-4">
         <div class="input-group">
@@ -17,32 +23,32 @@
 
     @if (ViewBag.Error != null)
     {
-        <div class="alert alert-danger">@ViewBag.Error</div>
+        <div class="alert alert-danger mt-4">@ViewBag.Error</div>
     }
 
     @if (Model != null)
     {
-        <div class="card mb-4">
-            <div class="card-body">
-                <h3 class="card-title">Current weather in @Model.City</h3>
-                <p class="card-text fs-5">@Model.WeatherText
-                    <img src="@Model.IconUrl" alt="@Model.WeatherText"/></p>
-                <p class="card-text text-muted">@Model.Temperature</p>
+        <div class="card mt-4 shadow">
+            <div class="card-body text-center">
+                <h2 class="card-title">@Model.City</h2>
+                <img src="@Model.IconUrl" alt="@Model.WeatherText" class="my-3"/>
+                <h4 class="card-text">@Model.WeatherText</h4>
+                <p class="fs-4 fw-semibold">@Model.Temperature</p>
             </div>
         </div>
 
-        <h4 class="mb-3">5-Day Forecast</h4>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <h3 class="mt-5">5-Day Forecast</h3>
+        <div class="row row-cols-1 row-cols-md-5 g-4 mt-2">
             @foreach (var day in Model.Forecasts)
             {
                 <div class="col">
-                    <div class="card h-100 text-center">
+                    <div class="card h-100 text-center shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title">@DateTime.Parse(day.Date, CultureInfo.InvariantCulture).ToString("dddd, MMM yyyy")</h5>
+                            <h5 class="card-title">@DateTime.Parse(day.Date).ToString("ddd, MMM d")</h5>
+                            <img src="@day.IconUrl" alt="@day.IconPhrase" class="mb-2"/>
                             <p class="card-text">@day.IconPhrase</p>
-                            <img src="@day.IconUrl" alt="@day.IconPhrase" class="mb-2" style="width:64px;"/>
-                            <p class="card-text"><strong>Min:</strong> @day.MinTemp</p>
-                            <p class="card-text"><strong>Max:</strong> @day.MaxTemp</p>
+                            <p class="text-muted small">Min: @day.MinTemp</p>
+                            <p class="text-muted small">Max: @day.MaxTemp</p>
                         </div>
                     </div>
                 </div>
