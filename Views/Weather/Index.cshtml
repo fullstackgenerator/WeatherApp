@@ -10,8 +10,8 @@
 
     <form method="post" class="mb-4">
         <div class="input-group">
-            <input type="text" name="city" class="form-control" placeholder="Enter city..." required />
-            <button type="submit" class="btn btn-primary">Get Weather</button>
+            <input type="text" name="city" class="form-control" placeholder="Enter city..." required/>
+            <button type="submit" class="btn btn-primary">Get weather forecast</button>
         </div>
     </form>
 
@@ -24,8 +24,9 @@
     {
         <div class="card mb-4">
             <div class="card-body">
-                <h3 class="card-title">Current Weather in @Model.City</h3>
-                <p class="card-text fs-5">@Model.WeatherText</p>
+                <h3 class="card-title">Current weather in @Model.City</h3>
+                <p class="card-text fs-5">@Model.WeatherText
+                    <img src="@Model.IconUrl" alt="@Model.WeatherText"/></p>
                 <p class="card-text text-muted">@Model.Temperature</p>
             </div>
         </div>
@@ -37,8 +38,9 @@
                 <div class="col">
                     <div class="card h-100 text-center">
                         <div class="card-body">
-                            <h5 class="card-title">@DateTime.Parse(day.Date, CultureInfo.InvariantCulture).ToString("dddd, MMM dd")</h5>
+                            <h5 class="card-title">@DateTime.Parse(day.Date, CultureInfo.InvariantCulture).ToString("dddd, MMM yyyy")</h5>
                             <p class="card-text">@day.IconPhrase</p>
+                            <img src="@day.IconUrl" alt="@day.IconPhrase" class="mb-2" style="width:64px;"/>
                             <p class="card-text"><strong>Min:</strong> @day.MinTemp</p>
                             <p class="card-text"><strong>Max:</strong> @day.MaxTemp</p>
                         </div>

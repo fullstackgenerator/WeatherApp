@@ -41,7 +41,8 @@ public class WeatherService
         {
             City = data.location.name,
             WeatherText = data.current.condition.text,
-            Temperature = data.current.temp_c + " °C"
+            Temperature = data.current.temp_c + " °C",
+            IconUrl = "https:" + data.current.condition.icon
         };
     }
 
@@ -60,7 +61,8 @@ public class WeatherService
                 Date = DateTime.Parse((string)day.date).ToString("yyyy-MM-dd"),
                 IconPhrase = day.day.condition.text,
                 MinTemp = day.day.mintemp_c + " °C",
-                MaxTemp = day.day.maxtemp_c + " °C"
+                MaxTemp = day.day.maxtemp_c + " °C",
+                IconUrl = "https:" + day.day.condition.icon
             });
         }
 
