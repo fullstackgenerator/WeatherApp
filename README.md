@@ -1,3 +1,7 @@
+### WeatherApp
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 <p align="center" style="max-width: 700px; margin: 0 auto;"> <strong>WeatherApp</strong> is a lightweight weather application built using ASP.NET Core MVC. It allows users to search for any city and displays the current weather conditions along with a 5-day forecast, powered by WeatherAPI.com.</p>
 
 <p align="center">
@@ -15,3 +19,7 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/17d8cc94-ce42-4b2e-912d-e64ba4aac073" alt="Mobile view" style="max-width: 100%; height: auto;" />
 </p>
+
+### License
+
+This project is licensed under the [MIT License](LICENSE).
